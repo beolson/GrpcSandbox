@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "ToDoService";
+
+package todo;
+
+service ToDo {
+	rpc CreateToDo(CreateToDoRequest) returns (CreateToDoResponse);
+	rpc GetToDos(GetToDosRequest) returns (GetToDosResponse);
+}
+
+message CreateToDoRequest {
+	string task = 1;
+}
+
+message CreateToDoResponse {
+	int32 id = 1;
+}
+
+message GetToDosRequest{}
+
+message GetToDosResponse {
+ 	repeated ToDoModel ToDos = 1;
+}
+
+message ToDoModel {
+	int32 id = 1;
+	string task = 2;
+}
+
+
+
